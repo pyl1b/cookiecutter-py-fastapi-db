@@ -1,0 +1,148 @@
+[project]
+name = "{{ cookiecutter.project_name }}"
+dynamic = ["version"]
+# version = "0.0.1"
+description = "{{ cookiecutter.project_short_description }}"
+authors = [{name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}]
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: {{ cookiecutter.license }} License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "SQLAlchemy==2.0.23",
+    "alembic==1.12.1",
+    "db4me==0.1.0",
+    "attrs==23.1.0",
+    "aiosqlite==0.19.0",
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "build",
+    "flake8",
+    "httpx",
+    "isort",
+    "mypy",
+    "pyproject-flake8",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest",
+    "twine",
+    "wheel",
+]
+tests = [
+    "black",
+    "flake8",
+    "httpx",
+    "isort",
+    "mypy",
+    "pyproject-flake8",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest",
+    "twine",
+    "uvicorn[standard]",
+    "wheel",
+]
+docs = [
+    "cairosvg",
+    "markdown-include",
+    "mkdocs-material",
+    "mkdocs-material[imaging]",
+    "mkdocs",
+    "mkdocstrings",
+    "mkdocstrings[python]",
+    "pillow",
+    "pymdown-extensions",
+]
+server = [
+    "fastapi==0.104.1",
+    "log4me==0.1.0",
+    "passlib[bcrypt]==1.7.4",
+    "pydantic_settings==2.1.0",
+    "pydantic-settings-yaml==0.2.0",
+    "pydantic==2.5.2",
+    "python-jose[cryptography]==3.3.0",
+    "python-multipart==0.0.6",
+    "uvicorn[standard]",
+]
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=67.0", "setuptools_scm[toml]>=8"]
+
+
+[tool.setuptools]
+include-package-data = true
+
+
+[tool.setuptools.packages.find]
+exclude = ["venv*", "playground*"]
+
+
+[tool.setuptools_scm]
+fallback_version = "0.0.1-dev"
+write_to = "{{ cookiecutter.project_slug }}/__version__.py"
+
+
+[tool.isort]
+
+# Make isort compatible with black
+profile = "black"
+
+skip = [
+    "test_*.py", "*_test.py",
+    "tests_*.py", "*_tests.py",
+    "spec_*.py", "*_spec.py",
+    "specs_*.py", "*_specs.py",
+]
+src_paths = "{{ cookiecutter.project_slug }}"
+known_first_party = "{{ cookiecutter.project_slug }}"
+
+
+[tools.black]
+
+# Standard black line length is 88
+line-length = 80
+
+# Python versions that should be supported by Black's output
+target-version = ['py39', 'py310', 'py311']
+
+
+[tool.pytest.ini_options]
+testpaths = [
+    "{{ cookiecutter.project_slug }}",
+]
+python_files = [
+    "test_*.py", "*_test.py",
+    "tests_*.py", "*_tests.py",
+    "spec_*.py", "*_spec.py",
+    "specs_*.py", "*_specs.py",
+]
+python_classes = ["Test", "Acceptance"]
+python_functions = ["test"]
+
+
+[tool.mypy]
+ignore_missing_imports = true
+exclude = [
+    ".+_tests?.py", "tests?_.+",
+    ".+_specs?.py", "specs?_.+"
+]
+
+
+[tool.flake8]
+max-line-length = 80
+docstring-convention = "google"
+exclude = [
+    "test_*.py", "*_test.py",
+    "tests_*.py", "*_tests.py",
+    "spec_*.py", "*_spec.py",
+    "specs_*.py", "*_specs.py",
+]
+extend-ignore = "E203, E501, E704"

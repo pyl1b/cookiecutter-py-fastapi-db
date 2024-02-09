@@ -1,0 +1,18 @@
+{
+    "cSpell.words": [
+        "aiosqlite",
+        "autoflush",
+        "joinedload",
+        "onupdate",
+        "passlib",
+        "primaryjoin",
+        "secondaryjoin",
+        "selectinload",
+        "sessionmaker"
+    ],
+    "python.testing.pytestArgs": [
+      "log2me"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
