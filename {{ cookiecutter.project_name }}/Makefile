@@ -12,6 +12,8 @@ else
 	RMRF = rm -rf
 endif
 
+export {{ cookiecutter.env_prefix }}_CONFIG=$(CONFIG_FILE)
+
 
 init:
 	python -m pip install --upgrade pip
