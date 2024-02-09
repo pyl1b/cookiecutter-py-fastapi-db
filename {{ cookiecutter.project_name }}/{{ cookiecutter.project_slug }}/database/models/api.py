@@ -1,0 +1,3 @@
+# TODO: import here all your models
+# ...
+from .base import Base  # noqa F401

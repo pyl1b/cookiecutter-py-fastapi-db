@@ -11,8 +11,9 @@
         "sessionmaker"
     ],
     "python.testing.pytestArgs": [
-      "log2me"
+      "{{ cookiecutter.project_slug }}"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "python.analysis.exclude": ["venv"]
 }

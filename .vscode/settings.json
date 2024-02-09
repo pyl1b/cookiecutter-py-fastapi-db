@@ -1,0 +1,12 @@
+{
+    "cSpell.words": [
+        "autoflush",
+        "customise",
+        "dotenv",
+        "onupdate",
+        "sessionmaker"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.analysis.exclude": ["venv"]
+}

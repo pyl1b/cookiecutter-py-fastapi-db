@@ -1,7 +1,7 @@
 # cookiecutter template for a FastAPI app
 
 This is a [cookiecutter](https://github.com/cookiecutter/cookiecutter)
-template for a [FastAPI](https://fastapi.tiangolo.com/)-based web application.
+template for a [FastAPI](https://fastapi.tiangolo.com/)-based web application that includes a database.
 
 ## Pre-requisites
 
@@ -17,15 +17,15 @@ python -m pip install --user cookiecutter
 Then, either clone this project locally, make some changes, then run:
 
 ```bash
-git clone https://github.com/pyl1b/cookiecutter-py-fastapi.git
+git clone https://github.com/pyl1b/cookiecutter-py-fastapi-db.git
 # changes ...
-python -m cookiecutter cookiecutter-py-fastapi
+python -m cookiecutter cookiecutter-py-fastapi-db
 ```
 
 Or, if you want to use this template directly from GitHub, run:
 
 ```bash
-python -m cookiecutter  gh:pyl1b/cookiecutter-py-fastapi
+python -m cookiecutter  gh:pyl1b/cookiecutter-py-fastapi-db
 ```
 
 ## After running cookiecutter
